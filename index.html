@@ -152,7 +152,8 @@ dragula([document.getElementById(left), document.getElementById(right)], {
   },
   accepts: function (el, target) {
     return target !== document.getElementById(left)
-  }
+  },
+  revertOnSpill:true
 });
       </code>
     </pre>
