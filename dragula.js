@@ -253,7 +253,9 @@ function dragula (initialContainers, options) {
   function drop (item, target) {
     var parent = getParent(item);
     if (_copy && o.copySortSource && target === _source) {
-      parent.removeChild(_item);
+      if (parent) {
+        parent.removeChild(_item);
+      }
     }
     if (isInitialPlacement(target)) {
       drake.emit('cancel', item, _source, _source);
@@ -286,7 +288,9 @@ function dragula (initialContainers, options) {
     var initial = isInitialPlacement(parent);
     if (initial === false && reverts) {
       if (_copy) {
-        parent.removeChild(_copy);
+        if (parent) {
+          parent.removeChild(_copy);
+        }
       } else {
         _source.insertBefore(item, _initialSibling);
       }
